@@ -31,12 +31,18 @@ export default defineConfig([
   {
     name: "@repo/eslint-config",
     rules: {
+      curly: "error",
       "capitalized-comments": "off",
       radix: "off",
       camelcase: [
         "error",
         {
           ignoreImports: true,
+          // Object property names commonly come from external APIs
+          // (query params, JSON payloads) that use snake_case, so skip
+          // checking them here. The @typescript-eslint/naming-convention
+          // rule still enforces camelCase/UPPER_CASE for variables.
+          properties: "never",
         },
       ],
       // @typescript-eslint rules
@@ -105,6 +111,7 @@ export default defineConfig([
       ],
       // Can't auto-fix for isNaN and isFinite
       "unicorn/prefer-number-properties": ["warn"],
+      "no-await-in-loop": "off",
     },
     settings: {
       // "import-x/internal-regex": "^@scope/*",
