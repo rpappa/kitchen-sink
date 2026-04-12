@@ -1,4 +1,4 @@
-# @rpappa/kitchen-sink
+# @repo/kitchen-sink
 
 A starting point for projects with basics out of the box:
 

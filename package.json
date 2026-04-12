@@ -1,5 +1,5 @@
 {
-  "name": "@rpappa/kitchen-sink",
+  "name": "@repo/kitchen-sink",
   "version": "0.0.1",
   "description": "Starter monorepo",
   "workspaces": [
