@@ -1,0 +1,21 @@
+{
+  "name": "@rpappa/kitchen-sink",
+  "version": "0.0.1",
+  "description": "Starter monorepo",
+  "workspaces": [
+    "pkg/*",
+    "app/*"
+  ],
+  "scripts": {
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck"
+  },
+  "author": "",
+  "license": "MIT",
+  "packageManager": "npm@11.9.0",
+  "devDependencies": {
+    "turbo": "^2.8.15",
+    "typescript": "^6.0.1-rc"
+  }
+}

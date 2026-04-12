@@ -1,0 +1,9 @@
+{
+  "extends": "@sindresorhus/tsconfig",
+  "compilerOptions": {
+    "noEmit": true, // by default we just type check
+    // support the eslint config and optionally type-checked js
+    "allowJs": true,
+    "checkJs": true
+  }
+}

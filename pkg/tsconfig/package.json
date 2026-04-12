@@ -1,0 +1,11 @@
+{
+  "name": "@repo/tsconfig",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@sindresorhus/tsconfig": "^8.1.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": ""
+}

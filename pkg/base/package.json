@@ -1,0 +1,19 @@
+{
+  "name": "@repo/pkgbase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "vitest run",
+    "typecheck": "tsc"
+  },
+  "type": "module",
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@repo/eslint-config": "*",
+    "eslint": "^9.39.4",
+    "vitest": "^4.1.0"
+  }
+}
