@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "PROJECT_DIR=\"$PWD\" ./scripts/check.sh",
+            "timeout": 120,
+            "statusMessage": "Running repository checks"
+          }
+        ]
+      }
+    ]
+  }
+}

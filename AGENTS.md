@@ -7,9 +7,6 @@ This file provides guidance to coding agents working in this repository.
 This is a Turborepo monorepo using npm workspaces. Run tasks from the repo root:
 
 ```bash
-npm run typecheck
-npm run lint
-npm run test
 npm run check
 ```
 
@@ -38,6 +35,10 @@ yes n | npx turbo gen workspace --copy @repo/appbase --type app --name @repo/<na
 ```
 
 This copies `app/base` and places the new application under `app/`. Run `npm install` after generating so workspace links stay current.
+
+## Working with dependencies
+
+Instead of making direct edits to dependency fields in `package.json`, use `npm install [-w] <pkg>` or `npm uninstall [-w] <pkg>`.
 
 ## Architecture
 
