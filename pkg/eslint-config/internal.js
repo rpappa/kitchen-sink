@@ -1,11 +1,7 @@
-import eslint from "@eslint/js";
 import { defineConfig } from "eslint/config";
-// @ts-expect-error no types vended
-import xoTypeScript from "eslint-config-xo-typescript";
-import { flatConfigs } from "eslint-plugin-import-x";
+import eslintConfigXo from "eslint-config-xo";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import unicornPlugin from "eslint-plugin-unicorn";
-import { configs as tseslintConfigs } from "typescript-eslint";
+import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
@@ -14,22 +10,19 @@ export default defineConfig([
       "**/*.jsonc",
       "**/*.json5",
       "**/tsconfig.json",
-      "**/eslint.config.{js,mjs,cjs}",
       ".vscode/*.json",
     ],
   },
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  eslint.configs.recommended,
-  ...tseslintConfigs.strictTypeChecked,
-  ...tseslintConfigs.stylisticTypeChecked,
-  unicornPlugin.configs.recommended,
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  ...xoTypeScript,
-  flatConfigs.recommended,
-  flatConfigs.typescript,
+  ...eslintConfigXo(),
   eslintPluginPrettierRecommended,
   {
     name: "@repo/eslint-config",
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: true,
+      },
+    },
     rules: {
       curly: "error",
       "capitalized-comments": "off",
@@ -58,10 +51,11 @@ export default defineConfig([
       ],
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
       "@typescript-eslint/array-type": ["error", { default: "array" }],
-      // May increase refactoring effort down the lien
+      // May increase refactoring effort down the line
       "@typescript-eslint/require-await": "off",
       // Import rules
       // This is important when using npm workspaces
+      "import-x/export": "error",
       "import-x/no-extraneous-dependencies": [
         "error",
         {
@@ -70,6 +64,7 @@ export default defineConfig([
           peerDependencies: true,
         },
       ],
+      "import-x/no-unresolved": "error",
       "import-x/order": [
         "error",
         {
@@ -91,6 +86,14 @@ export default defineConfig([
       ],
       "import-x/default": "off",
       "import-x/extensions": "off",
+      "n/file-extension-in-import": [
+        "error",
+        "always",
+        {
+          ".ts": "never",
+          ".tsx": "never",
+        },
+      ],
       // Unicorn rules
       "unicorn/no-useless-undefined": ["error", { checkArguments: false }],
       "unicorn/numeric-separators-style": [
@@ -114,7 +117,9 @@ export default defineConfig([
       "no-await-in-loop": "off",
     },
     settings: {
-      // "import-x/internal-regex": "^@scope/*",
+      "import-x/resolver": {
+        typescript: true,
+      },
     },
     linterOptions: {
       reportUnusedDisableDirectives: false,

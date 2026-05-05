@@ -17,6 +17,6 @@
   "packageManager": "npm@11.9.0",
   "devDependencies": {
     "turbo": "^2.8.15",
-    "typescript": "^6.0.1-rc"
+    "typescript": "^6.0.2"
   }
 }
