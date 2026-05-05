@@ -29,12 +29,23 @@ yes n | npx turbo gen workspace --copy @repo/pkgbase --type package --name @repo
 
 This copies `pkg/base`, keeps the just-in-time package structure intact, and places the new package under `pkg/`. Run `npm install` after generating so workspace links stay current.
 
+## Creating A New App
+
+Generate a new application package from the `@repo/appbase` template:
+
+```bash
+yes n | npx turbo gen workspace --copy @repo/appbase --type app --name @repo/<name> --destination app/<name>
+```
+
+This copies `app/base` and places the new application under `app/`. Run `npm install` after generating so workspace links stay current.
+
 ## Architecture
 
 This repository is a starter monorepo.
 
 - `pkg/*` contains internal packages and shared config packages.
 - `app/*` contains application packages.
+- `@repo/appbase` is the starter application template.
 - `@repo/pkgbase` is the starter package template.
 - `@repo/eslint-config` is the shared ESLint flat config.
 - `@repo/tsconfig` is the shared TypeScript config.

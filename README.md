@@ -17,3 +17,5 @@ Shared resources such as eslint and typescript configs live here too.
 ### `app/*`
 
 [Application packages](https://turborepo.dev/docs/core-concepts/package-types#application-packages) including frontends, deployed backends, react native apps, etc.
+
+`@repo/appbase` is the starter application template.
