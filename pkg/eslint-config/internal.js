@@ -86,14 +86,6 @@ export default defineConfig([
       ],
       "import-x/default": "off",
       "import-x/extensions": "off",
-      "n/file-extension-in-import": [
-        "error",
-        "always",
-        {
-          ".ts": "never",
-          ".tsx": "never",
-        },
-      ],
       // Unicorn rules
       "unicorn/no-useless-undefined": ["error", { checkArguments: false }],
       "unicorn/numeric-separators-style": [

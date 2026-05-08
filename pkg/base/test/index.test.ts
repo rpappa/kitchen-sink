@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { add } from "../src/index.js";
+import { add } from "@repo/pkgbase";
 
 describe("add", () => {
   it("should add two numbers", () => {

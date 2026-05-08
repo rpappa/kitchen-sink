@@ -4,7 +4,13 @@
     "check": {
       "dependsOn": ["lint", "typecheck", "test"]
     },
-    "lint": {},
+    "lint": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "$TURBO_ROOT$/pkg/eslint-config/*.js",
+        "$TURBO_ROOT$/pkg/eslint-config/package.json"
+      ]
+    },
     "test": {},
     "typecheck": {}
   }
