@@ -3,6 +3,8 @@ app/*/dist
 
 **/.turbo
 
+.claude/settings.local.json
+
 #### From https://github.com/github/gitignore/blob/main/Node.gitignore
 
 # Logs

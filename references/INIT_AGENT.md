@@ -15,7 +15,7 @@ Principles:
 What's set up:
 
 - `scripts/check.sh` runs `npm run check`, prints failures to stderr, and exits `2`. It uses `PROJECT_DIR` when the harness provides it, then falls back to `git rev-parse --show-toplevel` so it works when invoked manually.
-- A Stop-hook entry in `.claude/settings.local.json` points at it with a 120s timeout.
+- A Stop-hook entry in `.claude/settings.json` points at it with a 120s timeout.
 
 To wire it into a different harness:
 
