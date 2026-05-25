@@ -27,6 +27,11 @@ export default defineConfig([
       curly: "error",
       "capitalized-comments": "off",
       radix: "off",
+      // Require newline before return
+      "padding-line-between-statements": [
+        "error",
+        { blankLine: "always", prev: "*", next: "return" },
+      ],
       camelcase: [
         "error",
         {
@@ -50,6 +55,11 @@ export default defineConfig([
         },
       ],
       "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+      // Personal preference:
+      "@typescript-eslint/consistent-indexed-object-style": [
+        "error",
+        "index-signature",
+      ],
       "@typescript-eslint/array-type": ["error", { default: "array" }],
       // May increase refactoring effort down the line
       "@typescript-eslint/require-await": "off",
