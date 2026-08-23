@@ -24,6 +24,8 @@ Generate a new internal package from the `@repo/pkgbase` template:
 yes n | npx turbo gen workspace --copy @repo/pkgbase --type package --name @repo/<name> --destination pkg/<name>
 ```
 
+(@codex and other agents; this will hang w/o network access, so if your sandbox blocks it, run with appropriate perms)
+
 This copies `pkg/base`, keeps the just-in-time package structure intact, and places the new package under `pkg/`. Run `npm install` after generating so workspace links stay current.
 
 ## Creating A New App
@@ -59,13 +61,9 @@ Internal packages use the just-in-time strategy: they export raw TypeScript sour
 - Each package's `eslint.config.js` should re-export `@repo/eslint-config`.
 - Each package's `tsconfig.json` should extend `@repo/tsconfig`.
 - Tests live in `test/` directories and use Vitest.
-
-## Code Style
-
 - TypeScript is configured with `noEmit`; default behavior is type-check only.
-- ESLint uses strict `typescript-eslint`, `unicorn`, `xo-typescript`, `prettier`, and `import-x`.
-- Import ordering is enforced with alphabetical sorting and blank lines between groups.
-- Use `camelCase` for variables and functions, `UPPER_CASE` for constants.
-- Object properties may keep external API naming such as `snake_case`.
-- Prefer `interface` over `type` for object shapes.
-- Prefer `T[]` over `Array<T>`.
+- Support running with type stripping when possible, hence use `.ts` imports
+
+## Verifying your work
+
+`npm run check` should be all you need. It's fast due to turborepo caching. Only use other commands if you cannot isolate if it's your work that's failing or something unrelated. `npm run check` is exhaustive, you likely do not need to waste time and tokens checking with other means.

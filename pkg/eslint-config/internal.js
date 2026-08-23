@@ -95,7 +95,13 @@ export default defineConfig([
         },
       ],
       "import-x/default": "off",
-      "import-x/extensions": "off",
+      "import-x/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          checkTypeImports: true,
+        },
+      ],
       // Unicorn rules
       "unicorn/no-useless-undefined": ["error", { checkArguments: false }],
       "unicorn/numeric-separators-style": [

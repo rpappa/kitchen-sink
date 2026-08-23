@@ -1,7 +1,12 @@
 {
   "extends": "@sindresorhus/tsconfig",
   "compilerOptions": {
+    // keep source compatible with Node's native TypeScript type stripping
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
     "noEmit": true, // by default we just type check
+    "rewriteRelativeImportExtensions": true,
+    "verbatimModuleSyntax": true,
     // support the eslint config and optionally type-checked js
     "allowJs": true,
     "checkJs": true
