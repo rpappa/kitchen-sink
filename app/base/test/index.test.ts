@@ -4,6 +4,7 @@ import { getAppName } from "../src/index.ts";
 
 describe("getAppName", () => {
   it("should return the app package name", () => {
-    expect(getAppName()).toEqual("@repo/appbase");
+    expect.assertions(1);
+    expect(getAppName()).toBe("@repo/appbase");
   });
 });

@@ -1,3 +1,5 @@
+_Previously we configured hooks for these; it seems newer models work fine enough with AGENTS.md. This is kept for posterity._
+
 # Initialize An Agent To Work In This Repo
 
 Two harness-level guardrails are worth wiring up before pointing an agent at this codebase. Both are independent of any specific agent product — they describe a contract the harness should enforce, and leave the implementation to whatever hook system the harness exposes.
@@ -8,14 +10,13 @@ Run `scripts/check.sh` before the agent ends its turn. If checks fail, surface t
 
 Principles:
 
-- **Auto-fix first.** The lint task already runs `eslint . --fix`, so trivial formatting issues never reach the hook.
-- **Use caching.** `npm run check` runs through turbo, which caches lint/typecheck/test per package. Cold runs are slow, warm runs are sub-second.
+- **Auto-fix first.** The lint task runs Oxfmt and then `oxlint --fix`, so fixable formatting and lint issues are repaired before reporting remaining errors.
+- **Use caching.** `npm run check` runs through turbo. Tasks that edit files are uncached; package typecheck/test tasks remain cached and run after linting.
 - **One source of truth.** Call the same `npm run check` developers and CI use — don't reimplement the pipeline.
 
 What's set up:
 
 - `scripts/check.sh` runs `npm run check`, prints failures to stderr, and exits `2`. It uses `PROJECT_DIR` when the harness provides it, then falls back to `git rev-parse --show-toplevel` so it works when invoked manually.
-- A Stop-hook entry in `.claude/settings.json` points at it with a 120s timeout.
 
 To wire it into a different harness:
 

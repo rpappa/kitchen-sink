@@ -2,16 +2,16 @@
   "$schema": "https://turborepo.com/schema.json",
   "tasks": {
     "check": {
-      "dependsOn": ["lint", "typecheck", "test"]
+      "dependsOn": ["//#lint", "typecheck", "test"]
     },
-    "lint": {
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "$TURBO_ROOT$/pkg/eslint-config/*.js",
-        "$TURBO_ROOT$/pkg/eslint-config/package.json"
-      ]
+    "//#lint": {
+      "cache": false
     },
-    "test": {},
-    "typecheck": {}
+    "test": {
+      "dependsOn": ["//#lint"]
+    },
+    "typecheck": {
+      "dependsOn": ["//#lint"]
+    }
   }
 }

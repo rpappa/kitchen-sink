@@ -50,15 +50,15 @@ This repository is a starter monorepo.
 - `app/*` contains application packages.
 - `@repo/appbase` is the starter application template.
 - `@repo/pkgbase` is the starter package template.
-- `@repo/eslint-config` is the shared ESLint flat config.
 - `@repo/tsconfig` is the shared TypeScript config.
+- `.oxlintrc.json` and `.oxfmtrc.json` configure linting and formatting at the root.
 
 ## Package Conventions
 
 Internal packages use the just-in-time strategy: they export raw TypeScript source and do not require a build step by default.
 
 - JIT packages expose `src/index.ts` through `main`, `types`, and `exports`.
-- Each package's `eslint.config.js` should re-export `@repo/eslint-config`.
+- New packages inherit root lint/format configuration; no package-local scripts or configs are needed.
 - Each package's `tsconfig.json` should extend `@repo/tsconfig`.
 - Tests live in `test/` directories and use Vitest.
 - TypeScript is configured with `noEmit`; default behavior is type-check only.

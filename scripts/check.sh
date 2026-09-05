@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Quality check: lint (with --fix), typecheck, test.
+# Quality check: format, lint (with --fix), typecheck, test.
 # Used by agent stop hooks and runnable directly by other agents.
 # Exit 0 = success, exit 2 = blocking error (stderr shown to the agent).
 

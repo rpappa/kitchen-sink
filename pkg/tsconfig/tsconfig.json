@@ -7,7 +7,7 @@
     "noEmit": true, // by default we just type check
     "rewriteRelativeImportExtensions": true,
     "verbatimModuleSyntax": true,
-    // support the eslint config and optionally type-checked js
+    // support type-checked JavaScript alongside TypeScript
     "allowJs": true,
     "checkJs": true
   }

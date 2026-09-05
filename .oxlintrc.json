@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "style": "error"
+  },
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    // Formatting and import order belong to Oxfmt.
+    "sort-imports": "off",
+    // Preserve meaningful object order and freely written comments.
+    "sort-keys": "off",
+    "capitalized-comments": "off",
+    // Both named and default exports are useful public APIs.
+    "import/no-named-export": "off",
+    "import/prefer-default-export": "off",
+    "func-style": ["error", "declaration"],
+
+    // Existing template preferences beyond the category defaults.
+    "curly": "error",
+    "typescript/consistent-type-definitions": ["error", "interface"],
+    "typescript/consistent-indexed-object-style": ["error", "index-signature"],
+    "typescript/array-type": ["error", { "default": "array" }],
+    "typescript/require-await": "off",
+    "no-await-in-loop": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/test/**", "**/*.test.*", "**/*.spec.*"],
+      "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node", "vitest"],
+      "rules": {
+        // Test cases use literal inputs and explicit Vitest imports.
+        "no-magic-numbers": "off",
+        "vitest/no-importing-vitest-globals": "off",
+        // Keep string suite titles, as required by vitest/valid-title.
+        "vitest/prefer-describe-function-title": "off"
+      }
+    }
+  ]
+}

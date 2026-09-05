@@ -1,11 +1,11 @@
 {
   "name": "@repo/tsconfig",
   "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "",
   "main": "index.js",
   "devDependencies": {
     "@sindresorhus/tsconfig": "^8.1.0"
-  },
-  "author": "",
-  "license": "MIT",
-  "description": ""
+  }
 }

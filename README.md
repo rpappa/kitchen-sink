@@ -3,7 +3,7 @@
 A starting point for projects with basics out of the box:
 
 - [turborepo](https://turborepo.dev/)
-- Eslint with opinionated config
+- Oxlint with opinionated, type-aware rules and Oxfmt for formatting
 - Typescript config
 
 ## Structure
@@ -12,7 +12,7 @@ A starting point for projects with basics out of the box:
 
 [Internal packages](https://turborepo.dev/docs/core-concepts/internal-packages), intended to be used with the just-in-time strategy where typescript source is used directly.
 
-Shared resources such as eslint and typescript configs live here too.
+The shared TypeScript config lives here too
 
 ### `app/*`
 

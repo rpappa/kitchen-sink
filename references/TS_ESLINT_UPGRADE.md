@@ -1,5 +1,8 @@
 # Migrate To Current TypeScript And ESLint
 
+Historical reference: this describes the earlier ESLint upgrade. The template now uses
+Oxlint and Oxfmt; see the root README for the current setup.
+
 This repo moved from:
 
 - `typescript@^6.0.1-rc`

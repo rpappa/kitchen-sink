@@ -4,6 +4,7 @@ import { add } from "../src/index.ts";
 
 describe("add", () => {
   it("should add two numbers", () => {
-    expect(add(1, 2)).toEqual(3);
+    expect.assertions(1);
+    expect(add(1, 2)).toBe(3);
   });
 });
