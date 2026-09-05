@@ -14,12 +14,24 @@
   "rules": {
     // Formatting and import order belong to Oxfmt.
     "sort-imports": "off",
+    "no-duplicate-imports": ["error", { "allowSeparateTypeImports": true }],
+    // Shared rules also apply to Node.js code.
+    "import/no-nodejs-modules": "off",
+    // Allow separate declarations, numeric literals, and ternary expressions.
+    "one-var": "off",
+    "no-magic-numbers": "off",
+    "no-ternary": "off",
+    // Property names may be dictated by external APIs.
+    "id-length": ["error", { "properties": "never" }],
     // Preserve meaningful object order and freely written comments.
     "sort-keys": "off",
     "capitalized-comments": "off",
     // Both named and default exports are useful public APIs.
     "import/no-named-export": "off",
     "import/prefer-default-export": "off",
+    // Keep exports inline with their declarations.
+    "import/exports-last": "off",
+    "import/group-exports": "off",
     "func-style": ["error", "declaration"],
 
     // Existing template preferences beyond the category defaults.
@@ -35,8 +47,7 @@
       "files": ["**/test/**", "**/*.test.*", "**/*.spec.*"],
       "plugins": ["typescript", "unicorn", "oxc", "import", "promise", "node", "vitest"],
       "rules": {
-        // Test cases use literal inputs and explicit Vitest imports.
-        "no-magic-numbers": "off",
+        // Test cases use explicit Vitest imports.
         "vitest/no-importing-vitest-globals": "off",
         // Keep string suite titles, as required by vitest/valid-title.
         "vitest/prefer-describe-function-title": "off"
