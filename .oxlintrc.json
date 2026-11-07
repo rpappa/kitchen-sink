@@ -33,6 +33,8 @@
     "import/exports-last": "off",
     "import/group-exports": "off",
     "func-style": ["error", "declaration"],
+    // Filenames may match the primary export, which can be a type or a function.
+    "unicorn/filename-case": ["error", { "cases": { "camelCase": true, "pascalCase": true } }],
 
     // Existing template preferences beyond the category defaults.
     "curly": "error",
